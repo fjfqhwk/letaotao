@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
     @RequestMapping(value = {"", "/", "view"}, method = RequestMethod.GET)
     public String index() {
-        return "first";
+        return "main";
     }
 }

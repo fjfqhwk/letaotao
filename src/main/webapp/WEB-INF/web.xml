@@ -6,7 +6,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <!--welcome pages-->
     <!--<welcome-file-list>-->
-    <!--<welcome-file>first.jsp</welcome-file>-->
+    <!--<welcome-file>main.jsp</welcome-file>-->
     <!--</welcome-file-list>-->
 
     <!--SpringMVC前端控制器-->
