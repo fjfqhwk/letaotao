@@ -26,13 +26,33 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--把applicationContext.xml加入到配置文件中-->
+    <!-- 加载Spring容器 将文件加入到配置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
+        <param-value>/WEB-INF/spring/applicationContext.xml,/WEB-INF/spring/applicationContext-*.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!-- post乱码处理 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 错误配置 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/errorpages/404.jsp</location>
+    </error-page>
 
 </web-app>
