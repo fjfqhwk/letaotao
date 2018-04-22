@@ -6,6 +6,21 @@
     <!--控制器扫描-->
     <context:component-scan base-package="com.fox.controller"/>
 
+    <!-- 加载数据库连接配置文件 -->
+    <context:property-placeholder location="classpath:db.properties" />
+
+    <!-- 数据库连接处dbcp -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <!-- 开发阶段数据库最大连接数建议设置小一点够用即可，设置为3 -->
+        <property name="maxActive" value="${jdbc.maxActive}" />
+        <property name="maxIdle" value="${jdbc.maxIdle}" />
+    </bean>
+
     <bean id="loginController" class="com.fox.controller.LoginController">
         <!-- 注意这里的两个属性，对应的是两个需要跳转的页面，一个是显示用户，一个是登录失败还是登录界面 -->
         <property name="successView" value="default"></property>
