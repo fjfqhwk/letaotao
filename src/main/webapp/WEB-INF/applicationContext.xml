@@ -3,5 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <!--<context:component-scan base-package="com.fox.controller"/>-->
+    <!--控制器扫描-->
+    <context:component-scan base-package="com.fox.controller"/>
+
+    <bean id="loginController" class="com.fox.controller.LoginController">
+        <!-- 注意这里的两个属性，对应的是两个需要跳转的页面，一个是显示用户，一个是登录失败还是登录界面 -->
+        <property name="successView" value="default"></property>
+        <property name="failView" value="login"></property>
+    </bean>
+
 </beans>
