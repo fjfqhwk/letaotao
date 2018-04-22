@@ -9,5 +9,8 @@
         <module name="letaotao" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="letaotao" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
